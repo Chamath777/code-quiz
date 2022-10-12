@@ -7,7 +7,7 @@ let content = document.querySelector("#content");
 let start = document.querySelector("#start");
 let answer = document.querySelector("#answer");
 
-// Structure of questions
+// Questions
 class Question {
     constructor(question, options, answer) {
         this.question = question;
@@ -18,7 +18,7 @@ class Question {
 
 let questionList = [];
 
-// All the Questions in questionList array
+// Quiz list
 const options1 = ["1. boolean", "2. object", "3. number", "4. string"];
 const question1 = new Question("What data types can local storage accept?", options1, "4. string");
 questionList.push(question1);
@@ -43,7 +43,7 @@ const options6 = ["1. quotes", "2. curly braces", "3. parenthesis", "4. square b
 const question6 = new Question("What syntax wraps around strings?", options6, "1. quotes");
 questionList.push(question6);
 
-// Variables for the loop functions
+
 let optionList = [];
 let currentQues = 0;
 let score = 0;
@@ -55,7 +55,7 @@ let isClearingAnswer = false;
 let clearingAnswerCode = 0;
 let isCorrect = false;
 
-// Function that makes view scores and start quiz clickable
+// Function that makes view scores and start quiz 
 function init() {
     start.addEventListener("click", questionLoop);
     scores.addEventListener("click", showScores);
@@ -91,7 +91,6 @@ function runTimer () {
     }, 1000)
 }
 
-
 // Check if user answers the last question
 // Either goes to next question or end of quiz
 function nextQuestion(event) {
@@ -102,7 +101,6 @@ function nextQuestion(event) {
         endOfQuiz();
     }
 }
-
 
 // Checks if user on the first question 
 // If not it checks the answer from the previous question is correct
@@ -162,7 +160,7 @@ function changeQuestion() {
     currentQues++;
 }
 
-// Changes title to All Done, clears options and displays score
+// Changes title to when All Done, clears options and displays score
 // Sets current question and score to zero and creates input fields
 function endOfQuiz() {
     title.textContent = "All Done.";
@@ -182,7 +180,7 @@ function clearOptions() {
     optionList = [];
 }
 
-// Form for entering initials & click on submit 
+// Entering initials in the form & click submit 
 function inputFields() {
     let initialsForm = document.createElement("form");
     container.appendChild(initialsForm);
@@ -215,8 +213,6 @@ function stopReload(event) {
 }
 
 // Prevents submit from reloading page
-// Checks if initials are in a valid format
-// Lets program now quiz is over and removes the form & Saves the score
 function addScore(event) {
     if(event !== undefined) {
         event.preventDefault();
@@ -232,8 +228,6 @@ function addScore(event) {
 }
 
 // Checks if there are any scores saved locally
-// If there are is populates them in an array
-// Adds the score to the array and updates local storage
 function saveScore(id) {
     if(localStorage.getItem("leaderboard") !== null) {
         leaderboard = JSON.parse(localStorage.getItem("leaderboard"));
@@ -244,7 +238,6 @@ function saveScore(id) {
 }
 
 // If an incorrect input is given a message is displayed
-// Sets the submit button to listen for click
 function invalidInput() {
     answer.textContent = "Initials must be entered and three characters or less";
     answer.setAttribute("style", "color: black");
@@ -253,8 +246,7 @@ function invalidInput() {
     submit.addEventListener("click", addScore);
 }
 
-// Checks if quiz is ongoing to prevent being able to check scores during quiz
-// Displays a message is quiz is ongoing.
+// Displays a message is quiz is ongoing
 // Changes title, writes scores and creates buttons for navigation
 function showScores() {
     if(!isQuizOngoing) {
@@ -274,8 +266,6 @@ function showScores() {
     }
 }
 
-// Empties content box and formats for list & checks if any scores are stored
-// If it is in an array & the array is sorted to display the top score
 // The contents of the array are printed through a loop
 function writeScores() {
     content.textContent = "";
@@ -294,7 +284,6 @@ function writeScores() {
     }
 }
 
-// Checks to see if the buttons have been created already
 // Creates the buttons and sets listeners for a click
 function createEndButtons() {
     if(!document.getElementById("restart")) {
@@ -313,8 +302,6 @@ function createEndButtons() {
     }
 }
 
-// Removes the current buttons on the screen
-// Sets the title and content to original
 // Makes start button visible, resets variables and runs init function
 function restart() {
     title.setAttribute("style", "align-self: center");
@@ -330,8 +317,7 @@ function restart() {
     init();
 }
 
-// Clears local storage and array holding scores
-// Erases content area
+// Clears local storage 
 function clearScores() {
     localStorage.clear();
     content.textContent = "";

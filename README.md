@@ -24,3 +24,33 @@ WHEN the game is over
 THEN I can save my initials and my score
 ```
 
+Quiz Home page
+
+![Quiz Home](./images/Quiz%20Home.png) 
+
+Beginning of the Quiz
+
+![Quiz starting](./images/Quiz%20started.png) 
+
+Indicating when the answer is correct
+
+![Correct answer](./images/Correct%20answer.png) 
+
+Indicating when the answer is in-correct
+
+![Incorrect answer](./images/Incorrect%20Answer.png)
+
+When user answered all the Quizes
+
+![When answered all the quizes](./images/When%20all%20the%20quizes%20answered.png) 
+
+User's final score
+
+![User's final score](./images/Final%20score.png)
+
+All the user's final scores
+
+![Recorded all the user's quiz scores](./images/Recorded%20Quiz%20scores%20.png) 
+
+
+
